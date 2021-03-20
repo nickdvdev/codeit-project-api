@@ -7,12 +7,12 @@ const PORT = process.env.PORT ?? 3000;
 
 // DATABASE
 const db = knex({
-    client: 'pg',
+    client: 'mysql',
     connection: {
         host: '127.0.0.1',
         user: 'nick',
-        password: '',
-        database: 'codeit-project'
+        password: 'linuxrunsMYSQL2021!',
+        database: 'codeit_project'
     }
 });
 
@@ -28,6 +28,9 @@ app.get('/', (req, res) => {
     res.send('You have reached root page');
 });
 
+
+
+db.select().from('countries').then((data) => console.log(data));
 /*
 1. / -signin page - POST --success/fail
 2. /profile/:id - GET => user
