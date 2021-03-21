@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
-require('dotenv').config()
+const bcrypt = require('bcrypt');
+require('dotenv').config();
+
+const register = require('./controllers/register');
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -29,11 +32,10 @@ app.get('/', (req, res) => {
     res.send('You have reached root page');
 });
 
+app.post('/register', (req, res) => {
+    register.handleRegister(req, res, db, bcrypt);
+});
 
-
-db.select().from('countries')
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
 /*
 1. / -signin page - POST --success/fail
 2. /profile/:id - GET => user

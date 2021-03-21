@@ -1,7 +1,8 @@
 CREATE TABLE users (
-    id serial PRIMARY KEY,
-    username VARCHAR(100) UNIQUE NOT NULL,
-    email text UNIQUE NOT NULL,
-    birth_date TIMESTAMP NOT NULL,
+    id serial AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    birth_date TIMESTAMP NULL DEFAULT NULL,
     country_id SMALLINT NOT NULL
-);
+) AUTO_INCREMENT = 1;

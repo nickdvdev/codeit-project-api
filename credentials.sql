@@ -1,5 +1,5 @@
 CREATE TABLE credentials (
-    id serial PRIMARY KEY,
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_login VARCHAR(100) UNIQUE NOT NULL,
     password_hash VARCHAR(100) NOT NULL
-);
+) AUTO_INCREMENT = 1;
