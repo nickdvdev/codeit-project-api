@@ -2,17 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knex = require('knex');
+require('dotenv').config()
 
 const PORT = process.env.PORT ?? 3000;
 
 // DATABASE
 const db = knex({
-    client: 'mysql',
+    client: process.env.DB_CLIENT,
     connection: {
-        host: '127.0.0.1',
-        user: 'nick',
-        password: 'linuxrunsMYSQL2021!',
-        database: 'codeit_project'
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE
     }
 });
 
@@ -30,7 +31,9 @@ app.get('/', (req, res) => {
 
 
 
-db.select().from('countries').then((data) => console.log(data));
+db.select().from('countries')
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 /*
 1. / -signin page - POST --success/fail
 2. /profile/:id - GET => user
