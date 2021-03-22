@@ -3,7 +3,7 @@ CREATE TABLE users (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     username VARCHAR(100) NOT NULL,
     user_login VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(100) NOT NULL
+    password_hash VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     birth_date TIMESTAMP NULL DEFAULT NULL,
     country_id SMALLINT NOT NULL
